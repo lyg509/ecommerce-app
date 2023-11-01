@@ -15,6 +15,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ label, disabled, outline, small, custom, icon: Icon, onClinck }) => {
   return (
     <button
+      onClick={onClinck}
       disabled={disabled}
       className={`
   disabled:opacity-70
@@ -33,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({ label, disabled, outline, small, custom
   ${small ? "text-sm font-light" : "text-md font-semibold"}
   ${small ? "py-1 px-2 border-[1px]" : "py-3 px-4 border-2"}
   ${custom ? custom : ""}
-  
+   
   `}
     >
       {Icon && <Icon size={24} />}
