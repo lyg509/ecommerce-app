@@ -9,13 +9,13 @@ interface ButtonProps {
   small?: boolean;
   custom: string;
   icon: IconType;
-  onClinck: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, disabled, outline, small, custom, icon: Icon, onClinck }) => {
+const Button: React.FC<ButtonProps> = ({ label, disabled, outline, small, custom, icon: Icon, onClick }) => {
   return (
     <button
-      onClick={onClinck}
+      onClick={onClick}
       disabled={disabled}
       className={`
   disabled:opacity-70

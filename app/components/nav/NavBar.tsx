@@ -1,8 +1,13 @@
 import Link from "next/link";
 import Container from "../Container";
 import CartCount from "./CartCount";
+import UserMenu from "./UserMenu";
+import { getCurrentUser } from "@/actions/getCurrentUser";
+import Categories from "./Categories";
+import SearchBar from "./SearchBar";
 
-const NavBar = () => {
+const NavBar = async () => {
+  const currentUser = await getCurrentUser();
   return (
     <div
       className="sticky
@@ -23,17 +28,20 @@ const NavBar = () => {
           md-gap-0"
           >
             <Link href="/">Ecommerce</Link>
-            <div className="hidden md:block">Search</div>
+            <div className="hidden md:block">
+              <SearchBar />
+            </div>
             <div
               className="flex items-center gap-8
             md:gap-12"
             >
               <CartCount />
-              <div>UserMenu</div>
+              <UserMenu currentUser={currentUser} />
             </div>
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };
